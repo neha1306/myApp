@@ -1,0 +1,39 @@
+<p>contact works!</p>
+<div class="page-area">
+    <h2>Contact Us</h2>
+    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis praesentium
+         nostrum voluptates sint, eveniet rerum, minus voluptas quaerat quos odio
+          voluptatum numquam repellat animi cupiditate veritatis aliquam doloribus id dolorum.</p> -->
+    <!-- <div class="row">
+            Card 1 start 
+            <app-card></app-card>
+    </div> -->
+
+    <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address*</label>
+          <input type="email" class="form-control" name="emailid" placeholder="Enter email"
+          formControlName="emailid"  required email>
+          
+         
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password*</label>
+          <input type="password" class="form-control" name="passwd"  placeholder="Password"  formControlName="passwd"  required>
+        </div>
+        <div class="form-roup">
+          <label for="course">Select Course</label>
+          <select class="form-control" id="course" name="course"  formControlName="course">
+            <option value="Angular" >Angular</option>
+            <option value="HTML">HTML</option>
+            <option value="JS">Javascript</option>
+          </select>
+        </div>
+        
+        <button type="submit"  class="btn btn-success">Submit</button>
+      </form>
+
+      <p>
+        Email entered is : {{emailid}}
+     </p>
+</div> 

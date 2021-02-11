@@ -1,0 +1,14 @@
+.page-area{
+    width: 80%;
+    margin: 0 auto;
+    padding: 15px;
+    min-height: 400px;
+    text-align: center;
+    background: #f7f7ff;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched{
+    border: 1px solid red;
+    box-shadow: 0 0 3px 0px inset #ec6e6e;
+}

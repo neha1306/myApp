@@ -1,0 +1,36 @@
+<p>contact works!</p>
+<div class="page-area">
+    <h2>Contact Us</h2>
+    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis praesentium
+         nostrum voluptates sint, eveniet rerum, minus voluptas quaerat quos odio
+          voluptatum numquam repellat animi cupiditate veritatis aliquam doloribus id dolorum.</p> -->
+    <!-- <div class="row">
+            Card 1 start 
+            <app-card></app-card>
+    </div> -->
+
+    <form  #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address*</label>
+          <input type="email" class="form-control" name="emailid" id="exampleInputEmail1" 
+          aria-describedby="emailHelp" placeholder="Enter email" ngModel required email #email="ngModel">
+          <div class="small(email)" >Please Enter a valid Email</div>
+         
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password*</label>
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+           placeholder="Password" ngModel required>
+        </div>
+        <div class="form-roup">
+          <label for="course">Select Course</label>
+          <select class="form-control" id="course" name="course" ngModel>
+            <option value="Angular" >Angular</option>
+            <option value="HTML">HTML</option>
+            <option value="JS">Javascript</option>
+          </select>
+        </div>
+        
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-success">Submit</button>
+      </form>
+</div> 
