@@ -1,0 +1,35 @@
+<div class="page-area">
+    About Us
+</div>
+<div class="row justify-content-centre">
+    <div class="col-md-8">
+        <div class="form-group">
+            
+            <input type="text" class="form-control" placeholder="Search by Name" [(ngModel)]="nameSearch">
+          </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Availability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of productArr | filter:nameSearch">
+                <th scope="row">{{product.sno}}</th>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td><h4><span class="badge">{{product.availablity}}</span></h4></td>
+              </tr>
+              <tr>
+               
+            </tbody>
+          </table>
+          
+          
+    </div>
+</div>

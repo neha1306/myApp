@@ -21,6 +21,9 @@ import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterInterceptor } from './inter.Interceptor';
 
+import { AboutComponent } from './about/about.component';
+import { FilterPipe } from './appPipes/filter.pipe';
+
 
 
 RouterModule.forRoot([
@@ -41,7 +44,9 @@ RouterModule.forRoot([
     Contact2Component,
     InputComponent,
     OutputComponent,
-    HomeComponent,   
+    HomeComponent,
+    AboutComponent,
+    FilterPipe,   
   ],
   imports: [
     HttpClientModule,
