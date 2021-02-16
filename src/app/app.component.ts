@@ -1,15 +1,17 @@
 import { Component,OnDestroy} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MessageService } from './message.service';
 import {MyserviceService} from './myservice.service';
 // import { HttpClientModule} from '@angular/common/http';
-
+import { Employee }  from './employee';
+import {TestService} from "./test.service";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-// export class AppComponent {
+export class AppComponent {
 //   title = 'Angular 6 Project';
   // currentItem="Hii Guys";
 
@@ -53,7 +55,28 @@ import {MyserviceService} from './myservice.service';
 //         this.subscription.unsubscribe();
 //     }
 // }
-export class AppComponent{
-  title = 'Lazy loading feature modules';
 
+  // title = 'Lazy loading feature modules';
+  // color : string;
+
+  // message="hlo";
+  // update(){
+  //   this.message="hii";
+  // }
+  emp = new Employee('Mahesh', 20);	
+  msg: string = 'Hello World!';
+
+  onFormSubmit(empForm: NgForm) {
+	  let name = empForm.controls['name'].value;
+	  let age = empForm.controls['age'].value;
+	  this.emp = new Employee(name, age);
+  }  
+  constructor (private testService:TestService){
+
+  }
+
+  // fetch(){
+  //   this.testService.fetch().subscribe(data =>
+  //     console.log(data));   
+  // }
 }

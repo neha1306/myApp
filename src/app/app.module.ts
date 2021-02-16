@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './routing1';
 import { AppComponent } from './app.component';
 import { NewCmpComponent } from './new-cmp/new-cmp.component';
 import { DatabindingComponent } from './databinding/databinding.component';
@@ -19,12 +18,18 @@ import { InputComponent } from './input/input.component';
 import { OutputComponent } from './output/output.component';
 import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterInterceptor } from './inter.Interceptor';
-
 import { AboutComponent } from './about/about.component';
 import { FilterPipe } from './appPipes/filter.pipe';
-
-
+import { HighlightDirective } from './highlight.directive';
+import { NgchangeComponent } from './ngchange/ngchange.component';
+// import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { LoggingInterceptor } from './logging.interceptor';
+import { TestService } from './test.service';
+import { UserService } from './user.service';
+import { AdminGuard } from './admin.guard';
+import {EmployeeComponent} from './employee/employee.component';
+import {Approutes1} from './routing1';
+import { AdminComponent } from './admin/admin.component';
 
 RouterModule.forRoot([
   {
@@ -46,27 +51,34 @@ RouterModule.forRoot([
     OutputComponent,
     HomeComponent,
     AboutComponent,
-    FilterPipe,   
+    FilterPipe,
+    HighlightDirective,
+    NgchangeComponent,
+    EmployeeComponent,
+    // AdminHomeComponent,
+    AdminComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-         path: 'new-cmp',
-         component: NewCmpComponent
-      }
-   ])
+    RouterModule.forRoot(Approutes1)
+  //   RouterModule.forRoot([
+  //     {
+  //        path: 'new-cmp',
+  //        component: NewCmpComponent
+  //     }
+  //  ])
   ],
   // providers: [MyserviceService],
-  providers:[
-    // { provide: HTTP_INTERCEPTORS, useClass: InterInterceptor, multi: true },
-   
-  ],
+  // providers:[TestService,
+  //   { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
+  // ],
+  
+  providers:[AdminGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

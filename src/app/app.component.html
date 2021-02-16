@@ -64,4 +64,66 @@
 <router-outlet></router-outlet>
  -->
 
-<app-about></app-about>
+<!-- <app-about></app-about> -->
+
+
+<!-- <p appHighlight>Highlight me!</p> -->
+<!-- <p color='lightgreen'>Highlighted with parent component's color</p>
+<p color='yellow'>Highlighted in yellow</p>
+<p color=''>Highlighted in orange</p>
+<input type="text" > -->
+<!-- <button type="submit" appHighlight>Click</button>
+<p appHighlight highlightColor="yellow">Highlighted in yellow</p>
+
+<h2>Pick a highlight color</h2>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<p [appHighlight]="color">Highlight me!</p>
+<p [appHighlight]="color" defaultColor="violet">
+   Highlight me too!
+ </p> -->
+
+
+
+
+ <!-- ngOnChange -->
+<!-- 
+ <h1 style="color: orange;">Life Cycle Hook</h1>
+ <app-ngchange  [message]="message"></app-ngchange>
+ <button (click)="update()">Change</button> -->
+
+
+  <div class="employee">
+   <form #empForm="ngForm" (ngSubmit)="onFormSubmit(empForm)">
+     <p>Name: <input name="name" [ngModel]="emp.name"></p>
+     <p>Age:<input name="age" [ngModel]="emp.age"></p>  
+     <button>Submit</button>
+   </form>
+ </div>	
+ <div class="message">
+    <p>Message: <input [(ngModel)]="msg"/></p>
+ </div>	 
+ 
+ <app-employee [employee]="emp" [message]="msg"></app-employee>  
+ <!-- <app-admin-home></app-admin-home> -->
+
+
+<!-- <button (click)="fetch()">fetch</button> -->
+<!-- 
+<nav ngClass="parent-menu">
+   <ul>
+      <li>
+         <a [routerLink]="['home']" routerLinkActive="active">Home</a>
+             </li>
+      <li>
+  <a [routerLink]="['admin']" routerLinkActive="active">Admin</a>
+
+      </li>
+   </ul>
+</nav>
+<div>
+   <h3><router-outlet></router-outlet></h3>
+</div> -->
