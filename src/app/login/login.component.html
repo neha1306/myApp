@@ -1,0 +1,33 @@
+<div class="container vh-100">
+    <div class="row justify-content-center h-100">
+        <div class="card w-25 my-auto shadow">
+            <div class="card-header text-center">
+                <h2>Login Page</h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address*</label>
+                        <input type="text" id="email" class="form-control" name="email" placeholder="Enter email"
+                            formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors}" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" formControlName="password" id="password" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-right">
+                        <button [disabled]="loading" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

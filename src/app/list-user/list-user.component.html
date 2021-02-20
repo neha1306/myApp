@@ -1,0 +1,28 @@
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Avatar</th>
+        <th scope="col">View Details</th>
+        <th scope="col">Edit Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of product">
+        <th >{{list.id}}</th>
+        <td>{{list.first_name}}</td>
+        <td>{{list.name}}</td>
+        <td>{{list.last_name}}</td>
+        <td>{{list.email}}</td>
+        <td> <img ng-src="{{list.avatar}}"></td>
+      </tr>
+     
+            
+           
+    </tbody>
+  </table>
+  

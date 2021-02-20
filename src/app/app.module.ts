@@ -7,6 +7,7 @@ import { DatabindingComponent } from './databinding/databinding.component';
 import { DirngforComponent } from './dirngfor/dirngfor.component';
 import { RouterModule} from '@angular/router';
 import { MyserviceService } from './myservice.service';
+import { AuthService } from './auth.service';
 import { ContactComponent } from './contact/contact.component';
 import { CardComponent } from './card/card.component';
 import { Card2Component } from './card2/card2.component';
@@ -30,6 +31,9 @@ import { AdminGuard } from './admin.guard';
 import {EmployeeComponent} from './employee/employee.component';
 import {Approutes1} from './routing1';
 import { AdminComponent } from './admin/admin.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ListUserComponent } from './list-user/list-user.component';
 
 RouterModule.forRoot([
   {
@@ -56,7 +60,10 @@ RouterModule.forRoot([
     NgchangeComponent,
     EmployeeComponent,
     // AdminHomeComponent,
-    AdminComponent
+    AdminComponent,
+    RegisterComponent,
+    LoginComponent,
+    ListUserComponent
   ],
   imports: [
     HttpClientModule,
@@ -77,8 +84,8 @@ RouterModule.forRoot([
   // providers:[TestService,
   //   { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
   // ],
-  
-  providers:[AdminGuard,UserService],
+  // providers:[AdminGuard,UserService],
+  providers:[MyserviceService,AuthService], 
   bootstrap: [AppComponent]
 })
 export class AppModule {
