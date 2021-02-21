@@ -1,4 +1,4 @@
-
+<!-- <div class="container"></div> -->
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -12,17 +12,30 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let list of product">
-        <th >{{list.id}}</th>
-        <td>{{list.first_name}}</td>
-        <td>{{list.name}}</td>
+      <tr *ngFor="let list of users">
+        <td >{{list.id}}</td>
+        <td>{{list.first_name}}</td>>
         <td>{{list.last_name}}</td>
         <td>{{list.email}}</td>
         <td> <img ng-src="{{list.avatar}}"></td>
       </tr>
-     
-            
-           
     </tbody>
   </table>
   
+
+
+   <!-- <table>
+     <tr>
+       <th>Id</th>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>Email</th>
+     </tr>
+
+     <tr *ngFor="let a of users">
+       <td>{{a.id}}</td>
+       <td>{{a.first_name}}</td>
+       <td>{{a.last_name}}</td>
+       <td>{{a.email}}</td>
+     </tr>
+   </table> -->

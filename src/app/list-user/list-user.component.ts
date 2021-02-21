@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormService } from '../form.service';
 import { Router } from '@angular/router';
+import {User} from '../classes/user';
 
 @Component({
   selector: 'app-list-user',
@@ -8,16 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent implements OnInit {
-  product = {};
-  constructor(private _listUser: FormService, private router: Router) {
-  }
-
+  users: User[];
+  constructor(private _listUser: FormService, private router: Router) {}
+ 
   ngOnInit(): void {
     this._listUser.list()
-      .subscribe((productData) => {
-        // console.log(productData);
-        this.product = productData;
-      })
+      .subscribe((productData: any[]) => {
+        console.log(this.users);
+        this.users = productData;
+      });
   }
+  
 
 }
