@@ -14,7 +14,7 @@ export class ListUserComponent implements OnInit {
  
   ngOnInit(): void {
     this._listUser.list()
-      .subscribe((productData: any[]) => {
+      .subscribe((productData) => {
         console.log(this.users);
         this.users = productData;
       });
