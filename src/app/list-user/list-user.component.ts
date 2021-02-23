@@ -9,16 +9,16 @@ import {User} from '../classes/user';
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent implements OnInit {
-  users: User[];
-  constructor(private _listUser: FormService, private router: Router) {}
- 
+  users:User[];
+  
+  constructor(private _listUser: FormService, private router: Router) {} 
   ngOnInit(): void {
     this._listUser.list()
       .subscribe((productData) => {
         console.log(this.users);
         this.users = productData;
+      },error=>{
+          console.log("error",error);
       });
   }
-  
-
 }

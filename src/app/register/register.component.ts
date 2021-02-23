@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   error: string;
   public submitFormValid: boolean;
   constructor(private _registration: FormService, private router: Router, 
-    private toastr: NotificationService){}
+    private notificationService: NotificationService){}
 
   ngOnInit(): void {
     this.initForm();
@@ -35,18 +35,18 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
     if (this.registerForm.invalid) {
       this.submitFormValid = true;
-      this.toastr.showError("Register failed", 'Oops!');
+      this.notificationService.showError("Register failed", 'Oops!',3000);
     } else {
       this.submitFormValid = false;
       this.loading = true;
       this._registration.register(this.registerForm.value)
         .subscribe(data => {
-          this.toastr. showSuccess("Registration Successfull", "Success");
+          this.notificationService. showSuccess("Registration Successfull", "Success",3000);
           this.loading = false;
           this.router.navigate(['/login'])
         },error => {
             console.log("error", error);
-            this.toastr.showError("Register failed", 'Oops!');
+            this.notificationService.showError("Register failed", 'Oops!',3000);
             this.loading = false;
           });
       

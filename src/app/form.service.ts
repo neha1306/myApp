@@ -19,8 +19,8 @@ export class FormService {
   }
 
   list():Observable<any>{
-    // const params1=new HttpParams().set('page','2')
-    return this._http.get("https://reqres.in/api/users/2",);
+    const params1=new HttpParams().set('page','2');
+    return this._http.get("https://reqres.in/api/users",{params:params1});
   }
 }
 
