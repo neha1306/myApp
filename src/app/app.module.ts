@@ -13,12 +13,16 @@ import { LoginComponent } from './login/login.component';
 import { ListUserComponent } from './list-user/list-user.component';
 // import { NotificationService } from '../notification.service';
 import {FormService} from './form.service';
+import { CustomfilterPipe } from './customfilter.pipe';
+import { ViewdetailComponent } from './viewdetail/viewdetail.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ListUserComponent
+    ListUserComponent,
+    CustomfilterPipe,
+    ViewdetailComponent
   ],
   imports: [
     HttpClientModule,

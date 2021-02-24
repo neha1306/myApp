@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   submitted = false;
   error: string;
   public submitFormValid: boolean;
-  constructor(private _login: FormService, private router: Router, 
-    private toastr: NotificationService) { }
+  constructor(private Formservice: FormService, private router: Router, 
+    private Notificationservice: NotificationService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -37,18 +37,18 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if (this.loginForm.invalid) {
       this.submitFormValid = true;
-      this.toastr.showError("Register failed", 'Oops!',3000);
+      this.Notificationservice.showError("Register failed", 'Oops!',3000);
     } else {
       this.submitFormValid = false;
       this.loading = true;
-      this._login.login(this.loginForm.value)
+      this.Formservice.login(this.loginForm.value)
         .subscribe(data => {
-          this.toastr. showSuccess("Registration Successfull", "Success",2000);
+          this.Notificationservice. showSuccess("Registration Successfull", "Success",2000);
           this.loading = false;
           this.router.navigate(['/list-user'])
         },error => {
             console.log("error", error);
-            this.toastr.showError("Register failed", 'Oops!',3000);
+            this.Notificationservice.showError("Register failed", 'Oops!',3000);
             this.loading = false;
           }); 
     }

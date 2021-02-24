@@ -10,15 +10,17 @@ import {User} from '../classes/user';
 })
 export class ListUserComponent implements OnInit {
   users:User[];
+  searchName:string="";
   
-  constructor(private _listUser: FormService, private router: Router) {} 
+  constructor(private Formservice: FormService, private router: Router) {} 
   ngOnInit(): void {
-    this._listUser.list()
+    this.Formservice.list()
       .subscribe((productData) => {
         console.log(this.users);
-        this.users = productData;
+        this.users = productData.data;
       },error=>{
           console.log("error",error);
       });
   }
+
 }

@@ -4,12 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {RegisterComponent} from  './register/register.component';
 import {LoginComponent} from  './login/login.component';
 import {ListUserComponent} from  './list-user/list-user.component';
+import {ViewdetailComponent} from  './viewdetail/viewdetail.component';
 
 export const Approutes1: Routes = [
   {path:'', component:RegisterComponent},
   {path:'register', component:RegisterComponent},
-  {path:'login', component:LoginComponent,},
-  {path:'list-user', component:ListUserComponent,},
+  {path:'login', component:LoginComponent},
+  {path:'list-user', component:ListUserComponent},
+  {path:'viewdetail/:id', component:ViewdetailComponent},
 
 ];
 
