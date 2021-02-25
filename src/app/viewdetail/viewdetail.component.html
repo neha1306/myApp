@@ -1,4 +1,4 @@
-<div class="card">
+ <div class="card">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -7,11 +7,10 @@
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Avatar</th>
-
             </tr>
         </thead>
         <tbody>
-            <tr >    
+            <tr *ngFor="let list of user" >    
                 <td>{{list.id}}</td>
                 <td>{{list.first_name}}</td>
                 <td>{{list.last_name}}</td>
@@ -21,7 +20,7 @@
         </tbody>
     </table>
 </div> 
-<br />
+<br /> 
 
 <div class="footer">
     <button type="button" class="btn btn-success" (click)="goBack()">Go Back</button>

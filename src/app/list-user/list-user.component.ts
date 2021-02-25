@@ -28,5 +28,9 @@ export class ListUserComponent implements OnInit {
     this.router.navigate(['/viewdetail',listId]);
   }
 
+  // detail(Id:number){
+
+  // }
+
   
 }

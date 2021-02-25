@@ -26,7 +26,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let list of users | customfilter:searchName">
-          <td><button type="button" (click)="detail(list)">{{list.id}}</button></td>
+          <td><button type="button" (click)="detail(list.id)">{{list.id}}</button></td>
           <td>{{list.first_name}}</td>
           <td>{{list.last_name}}</td>
           <td>{{list.email}}</td>
@@ -38,11 +38,11 @@
       </tbody>
     </table>
   </div>
-<!-- 
-  <div >
-    <ul *ngFor="let list of users">
-      <li>{{list.email}}</li>
+
+  <div *ngIf ="SelectedItem">
+    <ul>
+      <li>{{SelecterItem.email}}</li>
       </ul>
   </div>
-</div>  -->
+</div> 
 
