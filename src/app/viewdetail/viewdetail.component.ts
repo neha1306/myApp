@@ -9,32 +9,25 @@ import {User} from '../classes/user';
   styleUrls: ['./viewdetail.component.css']
 })
 export class ViewdetailComponent implements OnInit {
-   id:any;
-  //  data:User="";
-   data:any;
-
-  
+   list:any;  
   constructor(
     private Formservice: FormService,
     private route:ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
-   this.id=  this.route.snapshot.params['id'];
-   this.getOne();
-  }
-  getOne(){
-   this.Formservice.getOne(this.id).subscribe(data=>{
-     this.data=data;
-     console.log(this.data);
+
+   let id= this.route.snapshot.params['id'];
+   console.log(id);
+   this.Formservice.getOne(id).subscribe(result=>{
+     this.list=result;
+     console.log(result);
    })
   }
   goBack(){
     this.router.navigate(['/list-user'])
   }
 
-  detail(index:number){
-    let pr
-  }
+ 
 
 }

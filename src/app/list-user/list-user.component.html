@@ -5,13 +5,14 @@
 
   <div class="d-flex">
     <input type="text" class="form-control" [(ngModel)]="searchName">
-    <button class="btn btn-success" >Add User</button>
+    <button class="btn btn-success">Add User</button>
   </div>
 </div>
- <br/> 
+<br /> 
+
 <div class="container-fluid ml-0 d-flex">
-<div class="card">
-      <table class="table table-striped">
+  <div class="card">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">Id</th>
@@ -25,7 +26,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let list of users | customfilter:searchName">
-          <td><a href="#" (click)="detail(i)">{{list.id}}</a></td>
+          <td><button type="button" (click)="detail(list)">{{list.id}}</button></td>
           <td>{{list.first_name}}</td>
           <td>{{list.last_name}}</td>
           <td>{{list.email}}</td>
@@ -36,15 +37,11 @@
       </tbody>
     </table>
   </div>
-
-
-    <!-- <div class="card">
-      <tr *ngFor="let list of users">      {{list.email}}
-      </tr> -->
-
-    
+<!-- 
+  <div >
+    <ul *ngFor="let list of users">
+      <li>{{list.email}}</li>
+      </ul>
   </div>
-
-</div> 
-
+</div>  -->
 

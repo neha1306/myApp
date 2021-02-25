@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnChanges ,Input} from '@angular/core';
 import { FormService } from '../form.service';
 import { Router } from '@angular/router';
 import {User} from '../classes/user';
@@ -8,10 +8,13 @@ import {User} from '../classes/user';
   templateUrl: './list-user.component.html',
   styleUrls: ['./list-user.component.css']
 })
-export class ListUserComponent implements OnInit {
+export class ListUserComponent implements OnInit,OnChanges {
   users:User[];
+
   searchName:string="";
-  
+   public sideView;
+   id:any;
+  selectProduct:User;
   constructor(private Formservice: FormService, private router: Router) {} 
   ngOnInit(): void {
     this.Formservice.list()
@@ -23,4 +26,9 @@ export class ListUserComponent implements OnInit {
       });
   }
 
+  ngOnChanges():void{
+  
+}
+
+  
 }

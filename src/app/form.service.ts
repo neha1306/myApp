@@ -22,8 +22,8 @@ export class FormService {
     const params1=new HttpParams().set('page','2');
     return this._http.get("https://reqres.in/api/users",{params:params1});
   }
-  getOne(id){
-    return this._http.get("https://localhost:4200/user/"+id)
+  getOne(id:number){
+    return this._http.get("https://reqres.in/api/users?id="+id);
   }
 }
 
