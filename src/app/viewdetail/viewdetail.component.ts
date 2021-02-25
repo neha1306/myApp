@@ -22,11 +22,14 @@ export class ViewdetailComponent implements OnInit {
    this.Formservice.getOne(id).subscribe(result=>{
      this.list=result;
      console.log(result);
+     
    })
   }
   goBack(){
     this.router.navigate(['/list-user'])
   }
+
+  
 
  
 

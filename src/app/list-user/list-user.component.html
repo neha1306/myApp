@@ -31,7 +31,8 @@
           <td>{{list.last_name}}</td>
           <td>{{list.email}}</td>
           <td> <img src="{{list.avatar}}"></td>
-          <td><a [routerLink]="['/viewdetail/'+list.id]">View Details</a></td>
+          <!-- <td><a [routerLink]="['/viewdetail/'+list.id]">View Details</a></td> -->
+          <td><a (click)="onClick(list.id)">View Details</a></td>
           <td><a href="#">Edit Details</a></td>
         </tr>
       </tbody>

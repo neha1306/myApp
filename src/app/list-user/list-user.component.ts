@@ -8,13 +8,11 @@ import {User} from '../classes/user';
   templateUrl: './list-user.component.html',
   styleUrls: ['./list-user.component.css']
 })
-export class ListUserComponent implements OnInit,OnChanges {
+export class ListUserComponent implements OnInit {
   users:User[];
-
   searchName:string="";
-   public sideView;
    id:any;
-  selectProduct:User;
+ 
   constructor(private Formservice: FormService, private router: Router) {} 
   ngOnInit(): void {
     this.Formservice.list()
@@ -26,9 +24,9 @@ export class ListUserComponent implements OnInit,OnChanges {
       });
   }
 
-  ngOnChanges():void{
-  
-}
+  onClick(listId:number){
+    this.router.navigate(['/viewdetail',listId]);
+  }
 
   
 }
