@@ -26,23 +26,17 @@
       </thead>
       <tbody>
         <tr *ngFor="let list of users | customfilter:searchName">
-          <td><button type="button" (click)="detail(list.id)">{{list.id}}</button></td>
+          <td class="text-primary" >{{list.id}}</td>
           <td>{{list.first_name}}</td>
           <td>{{list.last_name}}</td>
           <td>{{list.email}}</td>
           <td> <img src="{{list.avatar}}"></td>
-          <!-- <td><a [routerLink]="['/viewdetail/'+list.id]">View Details</a></td> -->
-          <td><a (click)="onClick(list.id)">View Details</a></td>
-          <td><a href="#">Edit Details</a></td>
+          <td class="text-primary"  (click)="onClick(list.id)">View Details</td>
+          <td  class="text-primary">Edit Details</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div *ngIf ="SelectedItem">
-    <ul>
-      <li>{{SelecterItem.email}}</li>
-      </ul>
-  </div>
-</div> 
-
+</div>    
+ 

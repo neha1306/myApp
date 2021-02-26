@@ -15,6 +15,8 @@ import { ListUserComponent } from './list-user/list-user.component';
 import {FormService} from './form.service';
 import { CustomfilterPipe } from './customfilter.pipe';
 import { ViewdetailComponent } from './viewdetail/viewdetail.component';
+import { CreateComponent } from './create/create.component';
+import { EditComponent } from './edit/edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { ViewdetailComponent } from './viewdetail/viewdetail.component';
     LoginComponent,
     ListUserComponent,
     CustomfilterPipe,
-    ViewdetailComponent
+    ViewdetailComponent,
+    CreateComponent,
+    EditComponent
   ],
   imports: [
     HttpClientModule,

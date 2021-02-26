@@ -3,12 +3,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormService } from '../form.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '../notification.service';
+import {Subscription} from 'rxjs';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  subscription:Subscription;
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -39,7 +41,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.submitFormValid = false;
       this.loading = true;
-      this.Formservice.register(this.registerForm.value)
+       this.subscription=this.Formservice.register(this.registerForm.value)
         .subscribe(data => {
           this.Notificationservice. showSuccess("Registration Successfull", "Success",3000);
           this.loading = false;
@@ -51,5 +53,9 @@ export class RegisterComponent implements OnInit {
           });
       
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
