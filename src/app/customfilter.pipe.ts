@@ -1,3 +1,4 @@
+import { ListUserModule } from './list-user/list-user.module';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

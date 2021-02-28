@@ -3,49 +3,41 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { RouterModule} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import {Approutes1} from './routing1';
+import {AppRoutingModule} from './app.routing.module';
 import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { ListUserComponent } from './list-user/list-user.component';
-// import { NotificationService } from '../notification.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormService} from './form.service';
-import { CustomfilterPipe } from './customfilter.pipe';
+// import { CustomfilterPipe } from './customfilter.pipe';
+// import { NotificationService } from '../notification.service'
 import { ViewdetailComponent } from './viewdetail/viewdetail.component';
-import { CreateComponent } from './create/create.component';
-import { EditComponent } from './edit/edit.component';
+import { ViewdetailModule } from './viewdetail/viewdetail.module';
+import { LoginModule } from './login/login.module';
+import { ListUserComponent } from './list-user/list-user.component';
+import {  ListUserModule } from './list-user/list-user.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent,
-    ListUserComponent,
-    CustomfilterPipe,
-    ViewdetailComponent,
-    CreateComponent,
-    EditComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule,
     FormsModule,
+    NgbModule,
     BrowserAnimationsModule,
-   	ToastrModule.forRoot(
-       
-     ),
-    RouterModule.forRoot(Approutes1)
-  
+   	ToastrModule.forRoot(),
+    AppRoutingModule,
   ],
   providers:[FormService], 
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(){
-    console.log("Constructor module loading")
+    console.log("app module loading")
   }
  }

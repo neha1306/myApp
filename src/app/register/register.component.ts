@@ -15,16 +15,20 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   error: string;
-  public submitFormValid: boolean;
-  constructor(private Formservice: FormService, private router: Router, 
-    private Notificationservice: NotificationService){}
+  
+  constructor(
+    private Formservice: FormService,
+     private router: Router, 
+    private Notificationservice: NotificationService,
+    ){}
 
   ngOnInit(): void {
     this.initForm();
   }
+
   initForm() {
     this.registerForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required])
     });
   }
@@ -34,12 +38,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     if (this.registerForm.invalid) {
-      this.submitFormValid = true;
-      this.Notificationservice.showError("Register failed", 'Oops!',3000);
+      this.loading=false;
+      this.Notificationservice.showError("Register Validation Error", 'Oops!',3000);
     } else {
-      this.submitFormValid = false;
       this.loading = true;
        this.subscription=this.Formservice.register(this.registerForm.value)
         .subscribe(data => {
@@ -58,4 +60,5 @@ export class RegisterComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+  
 }

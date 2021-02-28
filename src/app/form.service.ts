@@ -38,6 +38,22 @@ export class FormService {
       )
   }
 
+  create(data):Observable<any>{
+    return this._http.post("https://reqres.in/api/users",data)
+    .pipe(
+      catchError(this.errorHandler)
+      )
+  }
+
+  edit(data):Observable<any>{
+    return this._http.put("https://reqres.in/api/users/2",data)
+    .pipe(
+      catchError(this.errorHandler)
+      )
+  }
+
+
+
  errorHandler(error:HttpErrorResponse){
  return throwError("Server Error");
  }

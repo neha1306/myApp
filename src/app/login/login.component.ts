@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   error: string;
-  public submitFormValid: boolean;
 
   constructor(
     private Formservice: FormService,
@@ -28,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
   initForm() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required])
     });
 
@@ -40,10 +39,8 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {
-      this.submitFormValid = true;
       this.Notificationservice.showError("Register failed", 'Oops!', 3000);
     } else {
-      this.submitFormValid = false;
       this.loading = true;
       this.subscription = this.Formservice.login(this.loginForm.value)
         .subscribe(data => {

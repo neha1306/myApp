@@ -10,7 +10,7 @@ import {Subscription} from 'rxjs';
 })
 export class ListUserComponent implements OnInit,OnDestroy {
   users:User[];
-  searchName;
+  searchName:string;
   subscription:Subscription;
   
   constructor(private Formservice: FormService, private router: Router) {} 
@@ -27,8 +27,6 @@ export class ListUserComponent implements OnInit,OnDestroy {
   onClick(listId:number){
     this.router.navigate(['/viewdetail',listId]);
   }
-
-
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
