@@ -4,8 +4,9 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
+
 export class FormService {
 
   constructor(private _http: HttpClient) { }
@@ -31,6 +32,7 @@ export class FormService {
       catchError(this.errorHandler)
     )
   }
+
   getOne(id:number){
     return this._http.get("https://reqres.in/api/users?id="+id)
     .pipe(
@@ -44,14 +46,6 @@ export class FormService {
       catchError(this.errorHandler)
       )
   }
-
-  edit(data):Observable<any>{
-    return this._http.put("https://reqres.in/api/users/2",data)
-    .pipe(
-      catchError(this.errorHandler)
-      )
-  }
-
 
 
  errorHandler(error:HttpErrorResponse){

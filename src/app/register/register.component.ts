@@ -53,7 +53,6 @@ export class RegisterComponent implements OnInit {
             this.Notificationservice.showError("Register failed", 'Oops!',3000);
             this.loading = false;
           });
-      
     }
   }
 

@@ -40,4 +40,4 @@ export class AppModule {
   constructor(){
     console.log("app module loading")
   }
- }
+}

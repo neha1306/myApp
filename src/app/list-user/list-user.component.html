@@ -1,46 +1,53 @@
 <div class="container-fluid">
   <div class="card-header text-center">
     <h3>List Of Users</h3>
+  </div>
 
-<!--     
-  </div><ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+  <div *ngIf="loading" class="overlay">
+    <div class="overlay__inner">
+      <div class="overlay__content"><span class="spinner"></span></div>
     </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="dateOfBirth">Date of birth</label>
-          <div class="input-group">
-            <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-  </ng-template>
-  
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
-  
-  <hr>
-  
-  <pre>{{ closeResult }}</pre> -->
-  
-    
+  </div>
+
   <div class="d-flex">
     <input type="text" class="form-control" [(ngModel)]="searchName">
-    <button class="btn btn-success">Add User</button>
+    <button class="btn btn-success" (click)="open(content)">Add User</button>
   </div>
 </div>
-<br /> 
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <div class="input-group">
+          <input id="name" name="name" class="form-control" ngModel required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="job">Job</label>
+        <div class="input-group">
+          <input id="job" name="job" class="form-control" ngModel required>
+        </div>
+      </div>
+      <div>
+        <div class="border text-center">
+          <button data-dismiss="modal" [disabled]="loading" class="btn btn-info">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
 
 <div class="container-fluid ml-0 d-flex">
   <div class="card">
@@ -58,16 +65,17 @@
       </thead>
       <tbody>
         <tr *ngFor="let list of users | customfilter:searchName">
-          <td class="text-primary" >{{list.id}}</td>
+          <td class="text-primary"  (click)="change(list.id)"
+          >{{list.id}}</td>
           <td>{{list.first_name}}</td>
           <td>{{list.last_name}}</td>
           <td>{{list.email}}</td>
           <td> <img src="{{list.avatar}}"></td>
-          <td class="text-primary"  (click)="onClick(list.id)">View Details</td>
-          <td  class="text-primary">Edit Details</td>
+          <td class="text-primary" (click)="onClick(list.id)">View Details</td>
+          <td class="text-primary">Edit Details</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-</div>  
+</div>
