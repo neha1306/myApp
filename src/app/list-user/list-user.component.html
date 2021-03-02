@@ -65,17 +65,20 @@
       </thead>
       <tbody>
         <tr *ngFor="let list of users | customfilter:searchName">
-          <td class="text-primary"  (click)="change(list.id)"
-          >{{list.id}}</td>
+          <td class="btn btn-link" (click)="change(list.id)">{{list.id}}</td>
           <td>{{list.first_name}}</td>
           <td>{{list.last_name}}</td>
           <td>{{list.email}}</td>
           <td> <img src="{{list.avatar}}"></td>
-          <td class="text-primary" (click)="onClick(list.id)">View Details</td>
+          <td class="text-primary btn btn-link" (click)="onClick(list.id)">View Details</td>
           <td class="text-primary">Edit Details</td>
         </tr>
       </tbody>
     </table>
   </div>
 
+  <div class="col-sm-4 pl-5">
+    <div [id]="selectedUser"></div>
+  </div>
 </div>
+

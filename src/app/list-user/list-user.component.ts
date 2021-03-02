@@ -13,7 +13,7 @@ import { NotificationService } from '../notification.service';
   styleUrls: ['./list-user.component.css']
 })
 
-export class ListUserComponent implements OnInit,OnChanges, OnDestroy {
+export class ListUserComponent implements OnInit, OnDestroy {
   users: User[];
   searchName: string;
   subscription: Subscription;
@@ -21,12 +21,8 @@ export class ListUserComponent implements OnInit,OnChanges, OnDestroy {
   addUser: FormGroup;
   submitted = false;
   loading = false;
-
-
-  @Input() empId: string;
-  currentEmpId: string;
-  emp:any;
-  empList:any;
+  
+  selectedUser:null
 
   constructor(
     private Formservice: FormService,
@@ -89,12 +85,10 @@ export class ListUserComponent implements OnInit,OnChanges, OnDestroy {
   }
 
   change(id){
-    this.currentEmpId=id;
-    console.log(this.currentEmpId)
+    this.selectedUser=id;
+    console.log(this.selectedUser)
   }
 
-  ngOnChanges(){
-  }
 
 
   ngOnDestroy() {
