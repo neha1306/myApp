@@ -27,7 +27,8 @@ export class ChildComponent implements OnInit, OnChanges {
     if (this.id){
       this.http.get('https://reqres.in/api/users/' + this.id)
       .subscribe(responseData => {
-       this.user = responseData;               
+       this.user = responseData;    
+       console.log(this.user);           
      });
     }   
   }
