@@ -13,8 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class ViewdetailComponent implements OnInit {
   subscription: Subscription;
   user: any;
-  @Input() id;
-  emp: string[] = [];
+ 
 
   constructor(
     private Formservice: FormService,
