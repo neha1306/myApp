@@ -31,18 +31,5 @@
     </div>
 
 
-    <div *ngIf="emp && id">
-        <div class="card" style="width: 18rem;">
-            <img src="{{emp.avatar}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h3 class="card-title">{{emp.first_name}} {{emp.last_name}}</h3>
-                <p class="card-text">{{emp.email}}</p>
-            </div>
-        </div>
-    </div>
-
-    <div *ngFor="let Emp of emp">
-        {{Emp.first_name}}
-     </div>
-
+   
 </div>

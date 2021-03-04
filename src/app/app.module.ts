@@ -1,3 +1,4 @@
+import { ChildComponent } from './child/child.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -16,12 +17,15 @@ import { ViewdetailComponent } from './viewdetail/viewdetail.component';
 // import { ViewdetailModule } from './viewdetail/viewdetail.module';
 import { LoginModule } from './login/login.module';
 import { ListUserComponent } from './list-user/list-user.component';
+import { ParentComponent } from './parent/parent.component';
 // import {  ListUserModule } from './list-user/list-user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     HttpClientModule,

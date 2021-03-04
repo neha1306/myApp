@@ -1,4 +1,3 @@
-
 import { Component, OnInit, OnChanges, Input, SimpleChanges, OnDestroy } from '@angular/core';
 import { FormService } from '../form.service';
 import { Router } from '@angular/router';
