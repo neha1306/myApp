@@ -24,7 +24,6 @@ export class ListUserComponent implements OnInit, OnDestroy {
   addUser: FormGroup;
   submitted = false;
   loading = false;
-  selectedUser: null
   editForm: FormGroup;
   user: User;
 
@@ -112,11 +111,6 @@ export class ListUserComponent implements OnInit, OnDestroy {
           this.loading = false;
         });
     }
-  }
-
-  change(id) {
-    this.selectedUser = id;
-    console.log(this.selectedUser)
   }
 
   ngOnDestroy() {

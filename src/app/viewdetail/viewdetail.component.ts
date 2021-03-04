@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './viewdetail.component.html',
   styleUrls: ['./viewdetail.component.css']
 })
-export class ViewdetailComponent implements OnInit, OnChanges {
+export class ViewdetailComponent implements OnInit {
   subscription: Subscription;
   user: any;
   @Input() id;
@@ -22,23 +22,7 @@ export class ViewdetailComponent implements OnInit, OnChanges {
     private router: Router,
     private http: HttpClient) { }
 
-  ngOnChanges() {
-
-    for (let propName in SimpleChange) {
-      let change = SimpleChange[propName];
-      console.log(change);
-      let curVal = JSON.stringify(change.currentValue);
-      let prevVal = JSON.stringify(change.previousValue);
-      let changeLog = `${propName}: currentValue = ${curVal}, previousValue = ${prevVal}`;
-
-      console.log(curVal);
-      if (propName === 'id') {
-        console.log(propName);
-        // this.emp.push(Emp);
-      }
-    }
-  }
-
+ 
 
   ngOnInit(): void {
     let id = +this.route.snapshot.paramMap.get('id');
