@@ -9,48 +9,15 @@
     </div>
   </div>
 
-  <div class="d-flex">
-    <input type="text" class="form-control" [(ngModel)]="searchName">
-    <button class="btn btn-success" (click)="open(content)">Add User</button>
+  <div class="row">
+    <input type="text" class="form-control col-sm-9" [(ngModel)]="searchName">
+    <button class="btn btn-success col-sm-1" (click)="open(content)">Add User</button>
   </div>
 </div>
 
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <div class="input-group">
-          <input id="name" name="name" class="form-control" ngModel required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="job">Job</label>
-        <div class="input-group">
-          <input id="job" name="job" class="form-control" ngModel required>
-        </div>
-      </div>
-      <div>
-        <div class="border text-center">
-          <button data-dismiss="modal" [disabled]="loading" class="btn btn-info">Submit</button>
-        </div>
-      </div>
-    </form>
-  </div>
-
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-  </div>
-</ng-template>
-
-<div class="container-fluid ml-0 d-flex">
-  <div class="card">
+<!-- Table -->
+<div class="row ml-0 ">
+  <div class="col-sm-8">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -64,21 +31,103 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let list of users | customfilter:searchName">
-          <td class="btn btn-link" (click)="change(list.id)">{{list.id}}</td>
-          <td>{{list.first_name}}</td>
-          <td>{{list.last_name}}</td>
-          <td>{{list.email}}</td>
-          <td> <img src="{{list.avatar}}"></td>
-          <td class="text-primary btn btn-link" (click)="onClick(list.id)">View Details</td>
-          <td class="text-primary">Edit Details</td>
+        <tr *ngFor="let user of users | customfilter:searchName">
+          <td class="btn-link" (click)="change(user.id)">{{user.id}}</td>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.email}}</td>
+          <td> <img src="{{user.avatar}}"></td>
+          <td class=" btn-link" (click)="onClick(user.id)">View Details</td>
+          <td class="btn-link" (click)="openEdit(contentEdit, user)">Edit Details</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="col-sm-4 pl-5">
-    <div [id]="selectedUser"></div>
+  <!-- <app-viewdetail></app-viewdetail> -->
   </div>
+
 </div>
 
+<!-- Add User -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add User</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="addUser" (ngSubmit)="onSubmit()" class="myForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control" name="name" formControlName="name"
+          [ngClass]="{ 'is-invalid': submitted && f.name.errors}" />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required">name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="job">Job</label>
+        <input type="text" id="job" class="form-control" name="job" formControlName="job"
+          [ngClass]="{ 'is-invalid': submitted && f.job.errors}" />
+        <div *ngIf="submitted && f.job.errors" class="invalid-feedback">
+          <div *ngIf="f.job.errors.required">job is required</div>
+        </div>
+      </div>
+      <div class="border text-center">
+        <button data-dismiss="modal" [disabled]="loading" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<!-- Edit User -->
+<ng-template #contentEdit let-modal>
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" novalidate>
+
+      <div class="form-group">
+        <label for="id">Id</label>
+        <div class="input-group">
+          <input formControlName="id" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <div class="input-group">
+          <input type="text" id="first_name" name="first_name" formControlName="first_name" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <div class="input-group">
+          <input type="text" id="last_name" name="last_name" formControlName="last_name" class="form-control">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="id">Email</label>
+        <div class="input-group">
+          <input type="email" id="email" name="email" formControlName="email" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

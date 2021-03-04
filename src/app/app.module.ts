@@ -10,13 +10,13 @@ import {AppRoutingModule} from './app.routing.module';
 import { RegisterComponent } from './register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormService} from './form.service';
-// import { CustomfilterPipe } from './customfilter.pipe';
+import { CustomfilterPipe } from './customfilter.pipe';
 // import { NotificationService } from '../notification.service'
 import { ViewdetailComponent } from './viewdetail/viewdetail.component';
-import { ViewdetailModule } from './viewdetail/viewdetail.module';
+// import { ViewdetailModule } from './viewdetail/viewdetail.module';
 import { LoginModule } from './login/login.module';
 import { ListUserComponent } from './list-user/list-user.component';
-import {  ListUserModule } from './list-user/list-user.module';
+// import {  ListUserModule } from './list-user/list-user.module';
 
 @NgModule({
   declarations: [
