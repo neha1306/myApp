@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
        this.subscription=this.Formservice.register(this.registerForm.value)
         .subscribe(data => {
           this.Notificationservice. showSuccess("Registration Successfull", "Success",3000);
+          localStorage.setItem('token',data.token);
           this.loading = false;
           this.router.navigate(['/login'])
         },error => {

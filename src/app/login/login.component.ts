@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
         .subscribe(data => {
           this.Notificationservice.showSuccess("Registration Successfull", "Success", 2000);
           this.loading = false;
+          localStorage.setItem('token',data.token);
           this.router.navigate(['/list-user'])
         }, error => {
           console.log("error", error);

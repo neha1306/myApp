@@ -25,6 +25,10 @@ export class FormService {
       )
   }
 
+  registered(){
+    return !!localStorage.getItem('token')
+  }
+
   list():Observable<any>{
     const params1=new HttpParams().set('page','2');
     return this._http.get("https://reqres.in/api/users",{params:params1})
