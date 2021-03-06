@@ -16,16 +16,13 @@ export class AuthorizationInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log(request.url);
-    let formService = this.injector.get(FormService)
+    const token: string = localStorage.getItem('token');
 
-    let tokenizedReq = request.clone({
-      setHeaders: {
-        Authorization: `Bearer ${formService.getToken()}`
-      }
-    })
-    
-    
-    return next.handle(tokenizedReq);
+    if (token) {
+      request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });
+  }
+
+    return next.handle(request);
   }
 }
 
