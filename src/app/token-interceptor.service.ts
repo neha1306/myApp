@@ -10,6 +10,7 @@ export class TokenInterceptorService implements HttpInterceptor {
   constructor(private injector:Injector) { }
 
   intercept(req,next){
+    console.log(req.url);
     let formService=this.injector.get(FormService)
     // const storageUser = localStorage.getItem('LoggedUser');
     let tokenizedReq=req.clone({

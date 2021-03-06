@@ -1,3 +1,4 @@
+import { AuthorizationInterceptor } from './authorization.interceptor';
 import { TokenInterceptorService } from './token-interceptor.service';
 
 import { ChildComponent } from './child/child.component';
@@ -42,7 +43,7 @@ import { RegistergGuard } from './registerg.guard';
     AppRoutingModule,
   ],
   providers:[FormService,RegistergGuard,
-  { provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true }
+  { provide:HTTP_INTERCEPTORS,useClass:AuthorizationInterceptor,multi:true }
    ], 
   bootstrap: [AppComponent]
 })
