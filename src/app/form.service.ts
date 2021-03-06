@@ -51,6 +51,10 @@ export class FormService {
       )
   }
 
+  getToken(){
+    return localStorage.getItem('token');
+  }
+
 
  errorHandler(error:HttpErrorResponse){
  return throwError("Server Error");

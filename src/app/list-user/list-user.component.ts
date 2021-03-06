@@ -59,6 +59,7 @@ export class ListUserComponent implements OnInit, OnDestroy {
       .subscribe((productData) => {
         console.log(this.users);
         this.users = productData.data;
+        // localStorage.setItem('token',productData.token);
       }, error => {
         console.log("error", error);
       });
